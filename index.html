@@ -139,11 +139,18 @@ section:last-of-type{border-bottom:0}
 .channels dd{margin:0;min-width:0;overflow-wrap:anywhere}
 .nota{margin-top:22px;padding:16px 20px;background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;max-width:62em}
 
-/* avances */
+/* avances: rejilla de bocetos y vídeos */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
-.shot{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.shot img,.shot video{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--teal-soft)}
-.shot figcaption{padding:10px 14px;font-size:.85rem;color:var(--muted)}
+.shot,.photo{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.shot img,.shot video,.photo img{display:block;width:100%;object-fit:cover;background:var(--teal-soft)}
+.shot img,.shot video{aspect-ratio:4/3}
+.shot figcaption,.photo figcaption{padding:10px 14px;font-size:.85rem;color:var(--muted)}
+
+/* foto grande a lo ancho (la de la competición).
+   Si la imagen es vertical, cambia el aspect-ratio a 4/3 o quítalo:
+   con 16/9 una foto vertical se recorta mucho por arriba y por abajo. */
+.photo{margin-bottom:26px;max-width:100%}
+.photo img{aspect-ratio:16/9}
 
 .todo{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.04em;background:var(--chip-bg);color:var(--chip-ink);padding:1px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}
 
@@ -185,9 +192,9 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
     <button class="seg" type="button" role="tab" id="tab-inicio" data-tab="inicio"
             aria-controls="panel-inicio" aria-selected="true"
             style="--seg:#48C2BD;--on:#0C3C3A"><span class="seg-label">Inicio</span></button>
-    <button class="seg" type="button" role="tab" id="tab-avances" data-tab="avances"
-            aria-controls="panel-avances" aria-selected="false"
-            style="--seg:#E8302F;--on:#FFFFFF"><span class="seg-label">Avances</span></button>
+    <button class="seg" type="button" role="tab" id="tab-proyecto" data-tab="proyecto"
+            aria-controls="panel-proyecto" aria-selected="false"
+            style="--seg:#E8302F;--on:#FFFFFF"><span class="seg-label">El proyecto</span></button>
     <button class="seg" type="button" role="tab" id="tab-patrocinadores" data-tab="patrocinadores"
             aria-controls="panel-patrocinadores" aria-selected="false"
             style="--seg:#FFDE59;--on:#3D3000"><span class="seg-label">Patrocinadores</span></button>
@@ -232,6 +239,7 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
         <p><strong>BioIngeniUS</strong> es una asociación universitaria sin ánimo de lucro nacida en la <a href="https://etsi.us.es" target="_blank" rel="noopener">Escuela Técnica Superior de Ingeniería (ETSi)</a> de la Universidad de Sevilla. Nuestro propósito es reducir las barreras económicas que encuentran las personas con amputación o diferencias en los miembros superiores a la hora de acceder a una prótesis de mano.</p>
         <p>Creemos que la ingeniería alcanza su máximo valor cuando se aplica a resolver problemas sociales reales. Por eso ofrecemos a estudiantes de Grado y Máster un espacio donde aplicar de forma práctica sus conocimientos en robótica, electrónica, mecánica e impresión 3D. En BioIngeniUS se aprende construyendo: convertimos ideas teóricas en soluciones funcionales y ponemos el talento universitario al servicio de la sociedad.</p>
         <p>Más allá del reto tecnológico y de la competición, somos una comunidad hecha por y para estudiantes con inquietud por innovar y compartir conocimiento.</p>
+        <p>Nuestro primer gran reto es la Competición Universitaria de Manos Protésicas. En <a href="#proyecto" data-tab="proyecto">El proyecto</a> puedes ver cómo avanza el prototipo y en qué consiste el certamen.</p>
       </div>
       <div class="areas">
         <div class="area"><h3>Mecánica y CAD</h3><p>Modelado paramétrico de falanges, articulaciones y encaje.</p></div>
@@ -241,8 +249,45 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
       </div>
     </section>
 
+    <section id="objetivos">
+      <div class="sec-head"><h2>Objetivos</h2></div>
+      <ul class="goals">
+        <li><span>Desarrollar y validar prótesis de mano funcionales de bajo coste, fabricables mediante impresión 3D y componentes accesibles.</span></li>
+        <li><span>Representar a la Universidad de Sevilla en la Competición Universitaria de Manos Protésicas.</span></li>
+        <li><span>Formar a estudiantes de la ETSi en el ciclo completo de un proyecto de ingeniería: diseño mecánico, electrónica, sensorización, programación y fabricación.</span></li>
+        <li><span>Documentar y compartir nuestros diseños para que otros equipos y usuarios puedan reproducirlos y mejorarlos.</span></li>
+        <li><span>Acercar la ingeniería biomédica y la robótica a la sociedad mediante la divulgación y la colaboración con otras entidades.</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Pestaña del proyecto: nuestros avances + la competición a la que vamos -->
+  <div class="panel" id="panel-proyecto" role="tabpanel" aria-labelledby="tab-proyecto" tabindex="-1" hidden>
+    <section id="avances">
+      <div class="sec-head"><h2>Avances</h2></div>
+      <p class="prose">Algunas propuestas de diseños en las que estamos trabajando.</p>
+      <div class="gallery">
+        <figure class="shot"><img src="img/boceto-2.png" alt="Garra en Fusion"></figure>
+        <figure class="shot"><video src="img/video-1.mp4" autoplay muted loop playsinline preload="auto" aria-label="Dedo en movimiento"></video></figure>
+        <figure class="shot"><img src="img/boceto-3.jpg" alt="Boceto a mano"></figure>
+      </div>
+    </section>
+
     <section id="competicion">
       <div class="sec-head"><h2>La competición</h2></div>
+
+      <!-- FOTO DE LA EDICIÓN ANTERIOR
+           1. Guarda la imagen que te han pasado en la carpeta img/ con el nombre
+              competicion-2026.jpg (o cambia el src de abajo por el nombre que tenga).
+           2. Ajusta el texto de alt y del pie de foto a lo que de verdad se vea.
+              El alt lo leen los lectores de pantalla y los buscadores, así que
+              describe la escena; el pie es lo que lee todo el mundo.
+           3. Si la foto es vertical, mira el comentario del .photo en el CSS. -->
+      <figure class="photo">
+        <img src="img/competicion-2026.jpg" alt="Equipos universitarios durante la II edición de la Competición Universitaria de Manos Protésicas">
+        <figcaption>II edición de la Competición Universitaria de Manos Protésicas · UPV, Valencia, mayo de 2026.</figcaption>
+      </figure>
+
       <div class="comp">
         <div class="prose">
           <p>Con nuestra primera mano protésica queremos representar a la Universidad de Sevilla en la <strong>Competición Universitaria de Manos Protésicas</strong>, un certamen que reúne a equipos de universidades de toda España.</p>
@@ -256,16 +301,13 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
         </dl>
       </div>
     </section>
+  </div>
 
-    <section id="objetivos">
-      <div class="sec-head"><h2>Objetivos</h2></div>
-      <ul class="goals">
-        <li><span>Desarrollar y validar prótesis de mano funcionales de bajo coste, fabricables mediante impresión 3D y componentes accesibles.</span></li>
-        <li><span>Representar a la Universidad de Sevilla en la Competición Universitaria de Manos Protésicas.</span></li>
-        <li><span>Formar a estudiantes de la ETSi en el ciclo completo de un proyecto de ingeniería: diseño mecánico, electrónica, sensorización, programación y fabricación.</span></li>
-        <li><span>Documentar y compartir nuestros diseños para que otros equipos y usuarios puedan reproducirlos y mejorarlos.</span></li>
-        <li><span>Acercar la ingeniería biomédica y la robótica a la sociedad mediante la divulgación y la colaboración con otras entidades.</span></li>
-      </ul>
+  <!-- Pestaña de patrocinadores -->
+  <div class="panel" id="panel-patrocinadores" role="tabpanel" aria-labelledby="tab-patrocinadores" tabindex="-1" hidden>
+    <section id="patrocinadores">
+      <div class="sec-head"><h2>Patrocinadores</h2></div>
+      <p class="nota">¿Estás interesado en patrocinarnos? No dudes en mandarle un correo a Natalia Aparicio, nuestra tesorera, a <a href="mailto:natapaort.bioingenius@gmail.com">natapaort.bioingenius@gmail.com</a></p>
     </section>
   </div>
 
@@ -303,27 +345,6 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
     </section>
   </div>
 
-  <!-- Pestaña de patrocinadores -->
-  <div class="panel" id="panel-patrocinadores" role="tabpanel" aria-labelledby="tab-patrocinadores" tabindex="-1" hidden>
-    <section id="patrocinadores">
-      <div class="sec-head"><h2>Patrocinadores</h2></div>
-      <p class="nota">¿Estás interesado en patrocinarnos? No dudes en mandarle un correo a Natalia Aparicio, nuestra tesorera, a <a href="mailto:natapaort.bioingenius@gmail.com">natapaort.bioingenius@gmail.com</a> <span class="todo"></span></p>
-    </section>
-  </div>
-
-  <!-- Pestaña de avances -->
-  <div class="panel" id="panel-avances" role="tabpanel" aria-labelledby="tab-avances" tabindex="-1" hidden>
-    <section id="avances">
-      <div class="sec-head"><h2>Avances</h2></div>
-      <p class="prose">Algunas propuestas de diseños en las que estamos trabajando.</p>
-      <div class="gallery">
-        <figure class="shot"><img src="img/boceto-2.png" alt="Garra en Fusion"></figure>
-        <figure class="shot"><video src="img/video-1.mp4" autoplay muted loop playsinline preload="auto" aria-label="Dedo en movimiento"></video></figure>
-        <figure class="shot"><img src="img/boceto-3.jpg" alt="Boceto a mano"></figure>
-      </div>
-    </section>
-  </div>
-
   </main>
 
   <footer>
@@ -337,6 +358,9 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
   var zone   = document.getElementById('navzone');
   var tabs   = Array.prototype.slice.call(document.querySelectorAll('.seg[data-tab]'));
   var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+
+  // enlaces antiguos: #avances sigue abriendo la pestaña, ahora llamada El proyecto
+  var alias = {avances:'proyecto'};
 
   function mostrar(nombre, mover){
     tabs.forEach(function(t){
@@ -362,17 +386,22 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
     });
   });
 
-  // el logotipo vuelve siempre a Inicio
-  var marca = document.querySelector('.brand[data-tab]');
-  if (marca) marca.addEventListener('click', function(e){ e.preventDefault(); mostrar('inicio', true); });
+  // cualquier enlace interno con data-tab cambia de pestaña (el logotipo y el de Inicio)
+  Array.prototype.slice.call(document.querySelectorAll('a[data-tab]')).forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      mostrar(a.dataset.tab, true);
+    });
+  });
 
   // el aviso "Secciones" también abre el menú (y lo cierra)
   var aviso = document.getElementById('navhint');
   if (aviso) aviso.addEventListener('click', function(){ zone.classList.toggle('is-open'); });
 
-  // sección inicial: la del enlace (#contacto) o Inicio
+  // sección inicial: la del enlace (#contacto, #proyecto...) o Inicio
   var inicial = (location.hash || '').replace('#','');
-  var valida  = tabs.some(function(t){ return t.dataset.tab === inicial; });
+  inicial = alias[inicial] || inicial;
+  var valida = tabs.some(function(t){ return t.dataset.tab === inicial; });
   mostrar(valida ? inicial : 'inicio', false);
 
   // al cargar, el menú se despliega un momento para que se vea que está ahí
