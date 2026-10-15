@@ -145,12 +145,24 @@ section:last-of-type{border-bottom:0}
 .shot img,.shot video,.photo img{display:block;width:100%;object-fit:cover;background:var(--teal-soft)}
 .shot img,.shot video{aspect-ratio:4/3}
 .shot figcaption,.photo figcaption{padding:10px 14px;font-size:.85rem;color:var(--muted)}
+/* esta va en la columna del centro, debajo del vídeo */
+.shot-centro{grid-column:2}
 
-/* foto grande a lo ancho (la de la competición).
-   Si la imagen es vertical, cambia el aspect-ratio a 4/3 o quítalo:
-   con 16/9 una foto vertical se recorta mucho por arriba y por abajo. */
-.photo{margin-bottom:26px;max-width:100%}
-.photo img{aspect-ratio:16/9}
+/* FOTO DE LA COMPETICIÓN
+   Dos mandos para encuadrarla sin tocar el archivo de imagen:
+
+   --foco  qué franja de la foto se ve. 0% pega el recorte al borde de ARRIBA
+           (máximo de caras, nada de mesa), 50% lo centra, 100% lo baja del todo.
+           Muévelo de 5 en 5 hasta que te guste.
+
+   aspect-ratio  cuánta altura se enseña. 2.2/1 es una franja apaisada;
+           16/9 enseña más alto y 4/3 bastante más (esto último, si la foto
+           fuera vertical).
+
+   max-width  el ancho de la foto. Súbelo o bájalo para hacerla más grande
+           o más pequeña. */
+.photo{--foco:15%;margin-bottom:26px;max-width:min(100%,660px)}
+.photo img{aspect-ratio:2.2/1;object-position:50% var(--foco)}
 
 .todo{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.04em;background:var(--chip-bg);color:var(--chip-ink);padding:1px 8px;border-radius:999px;vertical-align:middle;white-space:nowrap}
 
@@ -162,6 +174,7 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
   .mark{order:-1;width:170px;justify-self:start}
   .areas,.people{grid-template-columns:1fr 1fr}
   .gallery{grid-template-columns:1fr 1fr}
+  .shot-centro{grid-column:auto}
 }
 @media (max-width:560px){
   .seg{font-size:.68rem;letter-spacing:.04em;padding:0 4px}
@@ -270,6 +283,9 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
         <figure class="shot"><img src="img/boceto-2.png" alt="Garra en Fusion"></figure>
         <figure class="shot"><video src="img/video-1.mp4" autoplay muted loop playsinline preload="auto" aria-label="Dedo en movimiento"></video></figure>
         <figure class="shot"><img src="img/boceto-3.jpg" alt="Boceto a mano"></figure>
+        <!-- Va en la columna del centro, justo debajo del vídeo, gracias a la clase
+             shot-centro. Mide igual que los demás. Ajusta el alt a lo que se vea. -->
+        <figure class="shot shot-centro"><img src="img/Mano_buena.gif" alt="Animación de la mano protésica abriendo y cerrando los dedos"></figure>
       </div>
     </section>
 
@@ -284,13 +300,13 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
               describe la escena; el pie es lo que lee todo el mundo.
            3. Si la foto es vertical, mira el comentario del .photo en el CSS. -->
       <figure class="photo">
-        <img src="img/competicion-2026.jpg" alt="Nuestro equipo durante la II edición de la Competición Universitaria de Manos Protésicas">
-        <figcaption>II edición de la Competición Universitaria de Manos Protésicas · UPV, Valencia, mayo de 2026.</figcaption>
+        <img src="img/competicion-2026.jpg" alt="Nuestro equipo en las pruebas de destreza de la competición">
+        <figcaption>Una de las pruebas de destreza de la II edición de la Competición Universitaria de Manos Protésicas · UPV, Valencia, mayo de 2026.</figcaption>
       </figure>
 
       <div class="comp">
         <div class="prose">
-          <p>Con nuestra segunda mano protésica queremos representar a la Universidad de Sevilla en la <strong>Competición Universitaria de Manos Protésicas</strong>, un certamen que reúne a equipos de universidades de toda España.</p>
+          <p>Con nuestra primera mano protésica queremos representar a la Universidad de Sevilla en la <strong>Competición Universitaria de Manos Protésicas</strong>, un certamen que reúne a equipos de universidades de toda España.</p>
           <p>Los equipos diseñan y fabrican sus propias prótesis y las ponen a prueba en un recorrido cronometrado con retos de agarre y manipulación de objetos inspirados en la vida cotidiana.</p>
         </div>
         <dl class="facts">
