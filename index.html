@@ -177,8 +177,17 @@ section:last-of-type{border-bottom:0}
    ven igual de bien en modo día y en modo noche.
    object-fit:contain es para que el logo se vea entero: un logotipo nunca
    se recorta, aunque la caja no tenga sus mismas proporciones. */
-.marca{display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;min-height:118px}
-.marca img{max-height:76px;width:auto;object-fit:contain}
+.marca{display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;min-height:128px}
+/* El logo ocupa el ancho de la placa en lugar de salir a su tamaño original.
+   Antes llevaba width:auto, así que un archivo pequeño se quedaba pequeño.
+
+   height      la altura de la caja del logo. Todos los logos usan la misma,
+               así que ninguno se ve el doble que el otro.
+   max-width   hasta dónde se le deja crecer. No lo subas mucho: al ampliar
+               un archivo pequeño, se ve borroso.
+   contain     hace que el logo quepa entero dentro de esa caja sin
+               deformarse, sea apaisado o cuadrado. */
+.marca img{width:100%;max-width:280px;height:88px;object-fit:contain}
 
 /* ---------------------------------------------------------------
    DECORACIÓN DE LOS LATERALES
