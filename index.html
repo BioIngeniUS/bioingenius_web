@@ -165,7 +165,7 @@ section:last-of-type{border-bottom:0}
 .photo img{aspect-ratio:2.2/1;object-position:50% var(--foco)}
 
 /* patrocinadores */
-.sponsors{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+.sponsors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
 .sponsor{display:grid;gap:12px;align-content:start;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .sponsor h3{font-size:1.08rem;font-weight:700}
 .sponsor p{font-size:.95rem;color:var(--muted);line-height:1.55}
@@ -235,6 +235,7 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
   .mark{order:-1;width:170px;justify-self:start}
   .areas,.people{grid-template-columns:1fr 1fr}
   .gallery{grid-template-columns:1fr 1fr}
+  .sponsors{grid-template-columns:1fr 1fr}
   .shot-centro{grid-column:auto}
 }
 @media (max-width:560px){
@@ -395,14 +396,24 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
         <p>Las horas las ponemos nosotros; buena parte del material, quienes nos apoyan. Gracias a ellos podemos imprimir, probar, romper y volver a imprimir, que es exactamente como se llega a una prótesis que funcione.</p>
       </div>
 
-      <!-- LOGOS: guarda los dos archivos en img/ con estos nombres exactos,
-           IgusLogo.png y SakataLogo.jpeg, respetando las mayúsculas.
+      <!-- LOGOS: guarda los tres archivos en img/ con estos nombres exactos,
+           DinelLogo.png, IgusLogo.png y SakataLogo.jpeg, respetando las
+           mayúsculas.
 
-           La rejilla es de dos columnas y ahora están las dos ocupadas.
-           Las fichas van por orden alfabético. Si entra una tercera,
-           copia un bloque <article> entero y cámbiale logo, nombre y
-           texto: se coloca sola en la fila de abajo. -->
+           La rejilla es de tres columnas en pantalla grande, dos en tableta
+           y una en móvil. El orden de las fichas es el de este archivo: para
+           recolocarlas, mueve el bloque <article> entero. Si entra una cuarta,
+           copia uno y cámbiale logo, nombre y texto: se coloca sola. -->
       <div class="sponsors">
+
+        <article class="sponsor">
+          <a class="marca" href="https://sakata3d.com" target="_blank" rel="noopener noreferrer">
+            <img src="img/SakataLogo.jpeg" alt="Sakata 3D Filaments">
+          </a>
+          <h3>Sakata 3D Filaments</h3>
+          <p>Empresa española de filamento para impresión 3D, con sede en Peligros (Granada). Nos apoyan con una donación de material: el filamento con el que imprimimos las piezas de la mano. Trabajar con un carrete de calidad constante se nota en cada iteración, en piezas más resistentes y precisas, y en bastante menos plástico acabando en la basura.</p>
+          <p class="web"><a href="https://sakata3d.com" target="_blank" rel="noopener noreferrer">sakata3d.com</a></p>
+        </article>
 
         <article class="sponsor">
           <a class="marca" href="https://www.igus.es" target="_blank" rel="noopener noreferrer">
@@ -414,12 +425,16 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
         </article>
 
         <article class="sponsor">
-          <a class="marca" href="https://sakata3d.com" target="_blank" rel="noopener noreferrer">
-            <img src="img/SakataLogo.jpeg" alt="Sakata 3D Filaments">
+          <a class="marca" href="https://www.dinel.us.es" target="_blank" rel="noopener noreferrer">
+            <img src="img/DinelLogo.png" alt="DINEL, Departamento de Ingeniería Electrónica">
           </a>
-          <h3>Sakata 3D Filaments</h3>
-          <p>Empresa española de filamento para impresión 3D, con sede en Peligros (Granada). Nos apoyan con una donación de material: el filamento con el que imprimimos las piezas de la mano. Trabajar con un carrete de calidad constante se nota en cada iteración, en piezas más resistentes y precisas, y en bastante menos plástico acabando en la basura.</p>
-          <p class="web"><a href="https://sakata3d.com" target="_blank" rel="noopener noreferrer">sakata3d.com</a></p>
+          <h3>DINEL</h3>
+          <!-- COMPLETAR: añade en qué consiste su apoyo, igual que en las otras
+               dos fichas (material, uso del laboratorio, tutorización...). Lo que
+               hay escrito es cierto tal cual, pero se queda corto al lado de las
+               otras. -->
+          <p>Departamento de Ingeniería Electrónica de la ETSi, en nuestra propia universidad. Es el departamento donde se investiga la electrónica que montamos en la mano, y respalda el proyecto desde dentro de la Escuela.</p>
+          <p class="web"><a href="https://www.dinel.us.es" target="_blank" rel="noopener noreferrer">dinel.us.es</a></p>
         </article>
 
       </div>
