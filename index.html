@@ -177,7 +177,7 @@ section:last-of-type{border-bottom:0}
    ven igual de bien en modo día y en modo noche.
    object-fit:contain es para que el logo se vea entero: un logotipo nunca
    se recorta, aunque la caja no tenga sus mismas proporciones. */
-.marca{display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;min-height:128px}
+.marca{display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;min-height:150px}
 /* El logo ocupa el ancho de la placa en lugar de salir a su tamaño original.
    Antes llevaba width:auto, así que un archivo pequeño se quedaba pequeño.
 
@@ -187,7 +187,13 @@ section:last-of-type{border-bottom:0}
                un archivo pequeño, se ve borroso.
    contain     hace que el logo quepa entero dentro de esa caja sin
                deformarse, sea apaisado o cuadrado. */
-.marca img{width:100%;max-width:280px;height:88px;object-fit:contain}
+.marca img{width:100%;max-width:280px;height:92px;object-fit:contain}
+/* Un logotipo cuadrado metido en la misma caja apaisada que una marca
+   alargada se ve mucho más pequeño, porque solo puede crecer hasta la
+   altura. Se le da más alto para que pese lo mismo de un vistazo. La
+   placa mide igual en todas las fichas, así que los títulos siguen
+   alineados. Pon class="marca cuadrado" solo en los logos cuadrados. */
+.marca.cuadrado img{height:118px}
 
 /* ---------------------------------------------------------------
    DECORACIÓN DE LOS LATERALES
@@ -397,8 +403,8 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
       </div>
 
       <!-- LOGOS: guarda los tres archivos en img/ con estos nombres exactos,
-           DinelLogo.png, IgusLogo.png y SakataLogo.jpeg, respetando las
-           mayúsculas.
+           DinelLogo.png, IgusLogo.png, SakataLogo.jpeg y LabStudioLogo.png,
+           respetando las mayúsculas.
 
            La rejilla es de tres columnas en pantalla grande, dos en tableta
            y una en móvil. El orden de las fichas es el de este archivo: para
@@ -429,12 +435,17 @@ footer{padding-block:28px 40px;font-size:.85rem;color:var(--muted);display:flex;
             <img src="img/DinelLogo.png" alt="DINEL, Departamento de Ingeniería Electrónica">
           </a>
           <h3>DINEL</h3>
-          <!-- COMPLETAR: añade en qué consiste su apoyo, igual que en las otras
-               dos fichas (material, uso del laboratorio, tutorización...). Lo que
-               hay escrito es cierto tal cual, pero se queda corto al lado de las
-               otras. -->
-          <p>Departamento de Ingeniería Electrónica de la ETSi, en nuestra propia universidad. Es el departamento donde se investiga la electrónica que montamos en la mano, y respalda el proyecto desde dentro de la Escuela.</p>
+          <p>Departamento de Ingeniería Electrónica de la ETSi, en nuestra propia universidad. Es el departamento donde se enseña e investiga la electrónica que montamos en la mano, y respalda el proyecto desde dentro de la Escuela.</p>
           <p class="web"><a href="https://www.dinel.us.es" target="_blank" rel="noopener noreferrer">dinel.us.es</a></p>
+        </article>
+
+        <article class="sponsor">
+          <a class="marca cuadrado" href="https://www.instagram.com/lab.studiio/" target="_blank" rel="noopener noreferrer">
+            <img src="img/LabStudioLogo.png" alt="LaB studio">
+          </a>
+          <h3>LaB studio</h3>
+          <p>Empresa con la que hemos trabajado para la creación de nuestras camisetas. Gracias a ellos llevamos el proyecto puesto, dentro y fuera del taller.</p>
+          <p class="web"><a href="https://www.instagram.com/lab.studiio/" target="_blank" rel="noopener noreferrer">@lab.studiio</a></p>
         </article>
 
       </div>
